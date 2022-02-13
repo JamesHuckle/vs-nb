@@ -16,7 +16,7 @@ setup(
         'jupytext'
     ],
     author='James Huckle',
-    author_email='',
+    author_email='empty@unknown.com',
     long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[
