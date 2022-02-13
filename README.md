@@ -4,7 +4,7 @@
 
 This is needed because currently the [VS Code jupytext extension](https://github.com/notebookPowerTools/vscode-jupytext) is broken and the [standard jupytext library](https://github.com/mwouts/jupytext) does not work with VS Code notebooks.
 
-This is not a great option because it needs to be run manually in a .ipynb cell or an interactive .py cell (# %% syntax) to convert them, rather than happening after every save.
+A working jupytext extension would be preferred, because this package needs to be run manually in a .ipynb cell or an interactive .py cell (# %% syntax) to convert them, rather than happening after every save. You also need to manually type the name of the file into the convert function, rather that it picking it up automatically.
 
 ## Installation
 
@@ -20,7 +20,7 @@ pip install git+https://github.com/JamesHuckle/vs-nb.git
 ## Usage
 
 ```python
-#Inside a jupyter notebook cell
+#Inside a .ipynb cell or .py file that is named "test"
 from vs_nb import convert     
 convert(file_name='test')
 ```
