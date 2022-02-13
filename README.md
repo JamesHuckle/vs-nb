@@ -1,10 +1,14 @@
-# Foobar
+# vs_nb
 
-Foobar is a Python library for dealing with word pluralization.
+**vs_nb** is a Python library that converts .ipynb into .py and vice-versa in VS Code.
+
+This is needed because currently the [VS Code jupytext extension](https://github.com/notebookPowerTools/vscode-jupytext) does not work and the [standard jupytext library](https://github.com/mwouts/jupytext) does not work with VS Code notebooks currently.
+
+This is not a great option because it needs to be run manually in a .ipynb cell or an interactive .py cell (# %% syntax) to convert them, rather than happening after every save.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+To install **vs_nb**.
 
 ```bash
 pip install foobar
@@ -13,22 +17,13 @@ pip install foobar
 ## Usage
 
 ```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+#Inside a jupyter notebook cell
+from vs_nb import convert     
+convert(file_name='test')
 ```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
