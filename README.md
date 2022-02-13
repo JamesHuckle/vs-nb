@@ -2,7 +2,7 @@
 
 **vs_nb** is a Python library that converts .ipynb into .py and vice-versa in VS Code.
 
-This is needed because currently the [VS Code jupytext extension](https://github.com/notebookPowerTools/vscode-jupytext) does not work and the [standard jupytext library](https://github.com/mwouts/jupytext) does not work with VS Code notebooks currently.
+This is needed because currently the [VS Code jupytext extension](https://github.com/notebookPowerTools/vscode-jupytext) is broken and the [standard jupytext library](https://github.com/mwouts/jupytext) does not work with VS Code notebooks.
 
 This is not a great option because it needs to be run manually in a .ipynb cell or an interactive .py cell (# %% syntax) to convert them, rather than happening after every save.
 
@@ -11,9 +11,12 @@ This is not a great option because it needs to be run manually in a .ipynb cell 
 To install **vs_nb**.
 
 ```bash
-pip install foobar
+pip install vs-nb
 ```
-
+or
+```bash
+pip install git+https://github.com/JamesHuckle/vs-nb.git
+```
 ## Usage
 
 ```python
