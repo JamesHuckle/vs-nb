@@ -15,6 +15,7 @@ setup(
     install_requires = [# 
         'jupytext'
     ],
+    author='James Huckle',
     long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[
