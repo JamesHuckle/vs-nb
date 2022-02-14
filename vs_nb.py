@@ -1,18 +1,46 @@
 import os
 import subprocess 
 
-def convert(file_name):
-    file_name = file_name.split('.')[0]
-    if f'{file_name}.ipynb' not in os.listdir():  
-        print('Save .py file as .ipynb because no such file already exists.')            
-        command = f'jupytext --to notebook {file_name}.py'
+def convert(file_prefix):
+    '''
+    Save .ipynb as .py and vice-versa
+    '''
+    
+    ## Remove any file extensions/suffixes if user wrongly submitted a full file name
+    file_prefix = 'test'
+    file_prefix = file_prefix.split('.')[0]
+    ipynb_file = f'{file_prefix}.ipynb'    
+    py_file = f'{file_prefix}.py'  
+    
+    ## Find out whether this function was executed from a .py file or not
+    py_file_name = None
+    try:
+        py_file_name = __file__
+    except Exception as e:
+        None
+    called_from_py = False if py_file_name is None else True
+
+    '''
+    Save .py as .ipynb and vice-versa. Delete any opposing file first if it already 
+    exists before the conversion to force VS-Code to render the changes properly 
+    if both files happen to be open.
+    '''    
+    if called_from_py:
+        if ipynb_file in os.listdir():
+            #print(f'deleting {ipynb_file}')
+            os.remove(ipynb_file)
+        #print(f'Saving {py_file} as {ipynb_file}')
+        command = f'jupytext --to notebook {file_prefix}.py'
+        #command = 'cd'  
     else:
-        print('Save .ipynb file as .py with interactive syntax') 
-        command = f'jupytext --to py:percent {file_name}.ipynb'
+        if py_file in os.listdir():
+            #print(f'deleting {py_file}')
+            os.remove(py_file)
+        #print(f'Saving {ipynb_file} as {py_file} with interactive syntax') 
+        command = f'jupytext --to py:percent {file_prefix}.ipynb'
         
     try:
         output = subprocess.check_output(command, stderr=subprocess.STDOUT) 
     except Exception as e:
         print(f'Converstion failed! Terminal output:')
         [print(line) for line in e.stdout.decode('utf-8').split('\r\n')]
-    
