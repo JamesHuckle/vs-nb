@@ -8,12 +8,12 @@ A working jupytext extension would be preferred because this package needs to be
 
 ## Installation
 
-To install [**vs_nb**](https://pypi.org/project/vs-nb/0.1.0/) use pip
+Use pip to install `vs_nb` from [PyPi](https://pypi.org/project/vs-nb/0.5.0/)
 
 ```bash
 pip install vs-nb
 ```
-or GitHub
+or from [GitHub](https://github.com/JamesHuckle/vs-nb)
 ```bash
 pip install git+https://github.com/JamesHuckle/vs-nb.git
 ```
