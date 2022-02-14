@@ -27,16 +27,19 @@ convert(file_prefix='test', is_py='__file__' in globals())
 
 *(Recommendation)* 
 
-Set up **autosave** on VS Code because it does not warn a user on an active tab that the file on disk has changes until they try and save it, meaning they could be working on a stale file without knowing it!
+Set up **autosave** on VS Code because it does not currently alert when an file open in a tab has been modified on disk (by vs-nb) until you attempt to save it, meaning you could be working on a stale file without knowing it!
 
-Example:
+To activate autosave put this in your `settings.json` file in VS Code and restart VS Code.
+```Python
+"files.autoSave": "onFocusChange",
+```
+
+Example Bug:
 1) Open `.ipynb` and run `convert` function to build a `.py`
 2) Make changes to `.ipynb` in a VS Code tab but **do not save**. 
 3) Open the .py, make changes, save it, and run convert to build `.ipynb`.
-4) Navigating back to the `.ipynb` in the VS Code tab will result in no warning that the `.ipynb` has just been modified, instead it keeps the old unsaved changes.
+4) Navigating back to the `.ipynb` in the VS Code tab will result in no warning that the `.ipynb` has just been modified, instead it displays the old unsaved changes.
 
-To activate autosave put this in your `settings.json` file in VS Code.
-"files.autoSave": "onFocusChange",
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
