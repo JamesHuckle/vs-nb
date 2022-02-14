@@ -4,7 +4,7 @@ Is a Python package that saves .ipynb as a .py and vice-versa in VS Code.
 
 This is needed because currently the [VS Code jupytext extension](https://github.com/notebookPowerTools/vscode-jupytext) is broken and the [standard jupytext library](https://github.com/mwouts/jupytext) does not work with VS Code notebooks.
 
-A working jupytext extension would be preferred, because this package needs to be run manually in a .ipynb cell or an interactive .py cell (# %% syntax) to convert them, rather than happening after every save. You also need to manually type the name of the file into the convert function, rather than it picking it up automatically.
+A working jupytext extension would be preferred because this package needs to be run manually in a .ipynb cell or an interactive .py cell (# %% syntax) to convert them, rather than happening after every save. You also need to manually type the name of the file into the convert function, rather than it picking it up automatically.
 
 ## Installation
 
