@@ -1,6 +1,6 @@
 # vs_nb
 
-**vs_nb** is a Python library that saves .ipynb as a .py and vice-versa in VS Code.
+Is a Python package that saves .ipynb as a .py and vice-versa in VS Code.
 
 This is needed because currently the [VS Code jupytext extension](https://github.com/notebookPowerTools/vscode-jupytext) is broken and the [standard jupytext library](https://github.com/mwouts/jupytext) does not work with VS Code notebooks.
 
