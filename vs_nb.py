@@ -1,7 +1,7 @@
 import os
 import subprocess 
 
-def convert(file_prefix):
+def convert(file_prefix, is_py):
     '''
     Save .ipynb as .py and vice-versa
     '''
@@ -12,26 +12,17 @@ def convert(file_prefix):
     ipynb_file = f'{file_prefix}.ipynb'    
     py_file = f'{file_prefix}.py'  
     
-    ## Find out whether this function was executed from a .py file or not
-    py_file_name = None
-    try:
-        py_file_name = __file__
-    except Exception as e:
-        None
-    called_from_py = False if py_file_name is None else True
-
     '''
     Save .py as .ipynb and vice-versa. Delete any opposing file first if it already 
     exists before the conversion to force VS-Code to render the changes properly 
     if both files happen to be open.
     '''    
-    if called_from_py:
+    if is_py:
         if ipynb_file in os.listdir():
             #print(f'deleting {ipynb_file}')
             os.remove(ipynb_file)
         #print(f'Saving {py_file} as {ipynb_file}')
         command = f'jupytext --to notebook {file_prefix}.py'
-        #command = 'cd'  
     else:
         if py_file in os.listdir():
             #print(f'deleting {py_file}')

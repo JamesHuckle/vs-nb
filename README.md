@@ -22,7 +22,7 @@ pip install git+https://github.com/JamesHuckle/vs-nb.git
 ```python
 #Inside a .ipynb cell or .py file that is named "test"
 from vs_nb import convert     
-convert(file_prefix='test')
+convert(file_prefix='test', is_py='__file__' in globals())
 ```
 
 *(Recommendation)* 

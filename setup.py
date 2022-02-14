@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name='vs-nb',
-    version='0.1.0',
+    version='0.3.0',
     description='Converts .ipynb into .py and vice-versa',
     #single-file Python modules that aren’t part of a package
     py_modules=['vs_nb'],
